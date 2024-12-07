@@ -1,73 +1,99 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# mela-dummy
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A simple NestJS project designed to demonstrate basic API functionality:
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
+- **GET /user**: Retrieve a list of dummy users.
+- **POST /user**: Add a new user by providing their name and email.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Getting Started
 
-## Installation
+### Prerequisites
 
-```bash
-$ npm install
+- [Node.js](https://nodejs.org/) installed on your machine.
+- [NestJS CLI](https://docs.nestjs.com/) (optional, for development purposes).
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/<your-username>/mela-dummy.git
+   cd mela-dummy
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Run the application:
+
+   ```bash
+   npm run start
+   ```
+
+4. Access the API at `http://localhost:3000/user`.
+
+## API Endpoints
+
+### GET /user
+
+Returns a list of dummy users in JSON format.
+
+**Response:**
+
+```json
+[
+  { "id": 1, "name": "John Doe", "email": "john@example.com" },
+  { "id": 2, "name": "Jane Smith", "email": "jane@example.com" }
+]
 ```
 
-## Running the app
+### POST /user
 
-```bash
-# development
-$ npm run start
+Adds a new user to the list.
 
-# watch mode
-$ npm run start:dev
+**Request Body:**
 
-# production mode
-$ npm run start:prod
+```json
+{ "name": "Alice", "email": "alice@example.com" }
 ```
 
-## Test
+**Response:**
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```json
+{ "id": 3, "name": "Alice", "email": "alice@example.com" }
 ```
 
-## Support
+## Example Usage
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Using `curl`
 
-## Stay in touch
+#### GET /user
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+curl http://localhost:3000/user
+```
+
+#### POST /user
+
+```bash
+curl -X POST http://localhost:3000/user \
+-H "Content-Type: application/json" \
+-d '{"name": "Alice", "email": "alice@example.com"}'
+```
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests to enhance the project.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Happy coding!
